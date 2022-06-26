@@ -1,5 +1,7 @@
 import React from "react";
 
+//Created PostRecipe as a component to be used in RecipeList
+//This function takes our recipe and puts it in a <tr> to display correctly, and adds a delete button
 function PostRecipe ({recipe, handleDelete}){
     return (
             <tr>

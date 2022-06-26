@@ -7,6 +7,8 @@ function RecipeList({recipes, deleteRecipe}) {
   // TODO: Create at least one additional component that is used by this component.
   // TODO: Each recipe row must have a delete button - <button name="delete">Delete</button> - that deletes the post when clicked
 
+  //Added <th> to match the headers in the provided example
+  //Uses .map on our recipes to pass in recipes invidually and our deletehandler as props
   return (
     <div className="recipe-list">
       <table>

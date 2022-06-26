@@ -6,6 +6,7 @@ function RecipeCreate({newRecipe}) {
   // TODO: Add the required input and textarea form elements.
   // TODO: Add the required submit and change handlers
 
+  //Set an initial form state for default in form data
   const initialFormState = {
     name: "",
     cuisine: "",
@@ -14,7 +15,10 @@ function RecipeCreate({newRecipe}) {
     preparation: "",
   }
 
+  //Set a useState function using formData and initial form state as a default
   const [formData, setFormData] = useState({...initialFormState});
+
+  //Created a function to track changes in form
   const handleChange = ({ target }) => {
     setFormData({
       ...formData,
@@ -22,14 +26,15 @@ function RecipeCreate({newRecipe}) {
     });
   };
 
+  //Created a submit handeler to: 1. Use formData in newRecipe func, 2. Reset form to blank, 3. Set FormData back to initial state
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(formData);
     newRecipe(formData);
     event.target.reset();
     setFormData({initialFormState})
   };
   
+  //Inputs and textareas were added to take data, added required so data must be entered, gave them handlers as well, and the form an submit handler
   return (
     <form name="create" onSubmit={handleSubmit}>
       <table>
@@ -42,7 +47,7 @@ function RecipeCreate({newRecipe}) {
             <td className="content_td"><textarea required name="preparation" type="text" placeholder="Preparation" onChange={handleChange}></textarea></td>
             <td>
               <button type="submit">Create</button>
-            </td>
+            </td> 
           </tr>
         </tbody>
       </table>
